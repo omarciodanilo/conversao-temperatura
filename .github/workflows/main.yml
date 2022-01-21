@@ -51,3 +51,10 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
           aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Deploy to Kubernetes cluster
+        uses: Azure/k8s-deploy@v1.5
+        with:
+          images: marciodma/conversao-temperatura-kubedev:${{ github.run_number }}
+          manifests: |
+            k8s/deployment.yaml
