@@ -28,6 +28,6 @@ spec:
     app: conv-temp
   ports:
     - protocol: TCP
-      port: 8080
+      port: 80
       nodePort: 30000
   type: LoadBalancer
